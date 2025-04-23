@@ -6,7 +6,7 @@ const userRouter = express.Router();
 // opções de usuarios 
 userRouter.get('/info', authMiddleware(), ApiUser.FindById)
 userRouter.put('/:id', authMiddleware(), ApiUser.Update)
-userRouter.delete('/:id', authMiddleware(), ApiUser.Delete)
+userRouter.delete('/', authMiddleware(), ApiUser.Delete)
 
 
 // opções de admin

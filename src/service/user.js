@@ -1,9 +1,10 @@
 const modelUser = require("../model/user")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+require('dotenv').config()
 
 const salt = 12
-const secretKey = 'MeuSegredoForte'
+const secretKey = process.env.JWT_SECRET
 const roles = ['admin', 'employee']
 
 class ServiceUser{

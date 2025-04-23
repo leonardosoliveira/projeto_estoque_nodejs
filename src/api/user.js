@@ -14,8 +14,7 @@ class ApiUser{
     }
     async FindById(req, res ){
         try {
-            const organizationId = req.session.organizationId
-            const {id} = req.params
+            const {organizationId, id } = req.session
             const user = await serviceUser.FindById(organizationId, id)
 
             res.status(200).send({ user })
@@ -38,7 +37,7 @@ class ApiUser{
     async Update(req, res ){
         try {
             const organizationId = req.session.organizationId
-            const {id} = req.params
+            const id = req.params.id || req.session.id
             const {name, email, password, role} = req.body
             const user = await serviceUser.Update(organizationId, id, name, email, password, role)
 
@@ -51,7 +50,7 @@ class ApiUser{
     async Delete(req, res){
         try {
             const organizationId = req.session.organizationId
-            const {id} = req.params
+            const id = req.params.id || req.session.id
             const user = await serviceUser.Delete(organizationId, id)
             res.status(200).send({ user })
         } catch (error) {
