@@ -17,8 +17,7 @@ class Product {
             },
             description:{
                 type: database.db.Sequelize.STRING,
-                allowNull: false,
-                unique: true
+                allowNull: false
             },
             // Criando referencia com a model Organization
             organizationId: {
